@@ -6,7 +6,6 @@ import {Droppable} from "react-beautiful-dnd";
 
 const Lists = ({list, listId, records}) => {
   const [open, setOpen] = React.useState(false)
-  console.log(records)
   return (
     <div className={st.lists}>
       <Droppable droppableId={listId} direction="vertical">

@@ -16,18 +16,6 @@ const ChosenBoard = ({listsOrder}) => {
     if (!destination) {
       return
     }
-    // if (
-    //   source.droppableId !== destination.droppableId
-    //   || source.index !== destination.index)
-    // {
-    //   dispatch(dragAndDrop(
-    //     source.droppableId,
-    //     destination.droppableId,
-    //     source.index,
-    //     destination.index,
-    //     draggableId,
-    //   ))
-    // }
     if (source.droppableId !== destination.droppableId) {
       dispatch(dndFromListToList(
             source.droppableId,
@@ -65,8 +53,11 @@ const ChosenBoard = ({listsOrder}) => {
               <div key={listId}>
                 {
                   list.map(l => {
-                      const listRecords = records.map(record => record).filter(rec => rec.listId === l.id)
-                      return (
+                      // const listRecords = records.map(record => record).filter(rec => rec.listId === l.id)
+                    const listRecords = records.map(record => record).filter(rec => rec.listId === l.id)
+
+                    console.log(listRecords)
+                    return (
                         <Lists
                           key={l.id}
                           list={l}

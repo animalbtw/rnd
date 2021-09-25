@@ -44,12 +44,13 @@ export const listsReducer = createReducer(initialState, (builder) => {
       const {
         droppableIdStart,
         droppableIndexEnd,
-        droppableIndexStart
+        droppableIndexStart,
+        draggableId
       } = action.payload
 
       const list = state.filter(list => list.id === droppableIdStart)[0]
-      const record = list.records.splice(droppableIndexStart, 0)
-      list.records.splice(droppableIndexStart, 1, record)
+      const record = list.records.splice(droppableIndexStart, 1)
+      list.records.splice(droppableIndexEnd, 0, ...record)
     })
 })
 
